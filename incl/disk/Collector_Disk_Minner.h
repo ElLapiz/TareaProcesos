@@ -1,0 +1,11 @@
+//
+// Created by bernalvm on 19/11/19.
+//
+
+#ifndef FORKPROCESS_COLLECTOR_DISK_MINNER_H
+#define FORKPROCESS_COLLECTOR_DISK_MINNER_H
+
+void collectDiskData();
+
+
+#endif //FORKPROCESS_COLLECTOR_DISK_MINNER_H

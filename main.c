@@ -1,50 +1,28 @@
 #include <stdio.h>
 #include <unistd.h>
+#include "incl/memory/Collect_Memory_Minner.cpp"
+#include "incl/cpu/Collector_CPU_Minner.cpp"
+#include "incl/network/Collector_Network_Minner.cpp"
+#include "incl/disk/Collector_Disk_Minner.cpp"
+
+
 #define ERROR -1
 
 pid_t childPid;
 
-void imprimeHijo(int numero){
-    printf("Hijo : %d\n", (numero + 1));
-}
-
-void collectCpuData(int numero){
-    imprimeHijo(numero);
-    printf("Hola vengo a recolectar datos de CPU\n");
-    sleep(1);
-}
-
-void collectMemData(int numero){
-    imprimeHijo(numero);
-    printf("Hola vengo a recolectar datos de memoria\n");
-    sleep(1);
-}
-
-void collectNetData(int numero){
-    imprimeHijo(numero);
-    printf("Hola vengo a recolectar datos de red\n");
-    sleep(1);
-}
-
-void collectDiskData(int numero){
-    imprimeHijo(numero);
-    printf("Hola vengo a recolectar datos de disco\n");
-    sleep(1);
-}
-
 void asignaTrabajo(int numero){
     switch(numero){
         case 0:
-            collectCpuData(numero);
+            collectCpuData();
             break;
         case 1:
-            collectDiskData(numero);
+            collectDiskData();
             break;
         case 2:
-            collectMemData(numero);
+            collectMemData();
             break;
         case 3:
-            collectNetData(numero);
+            collectNetData();
             break;
     }
 }
@@ -66,10 +44,10 @@ int creaHijos(pid_t childPid) {
 
     }
 }
+
 //*********************
 //     Método main
 //*********************
-
 int main(){
     return creaHijos(childPid);
 }
