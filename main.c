@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include "miners.c"
 #define ERROR -1
 
 pid_t childPid;
